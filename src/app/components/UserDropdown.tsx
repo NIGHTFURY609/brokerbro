@@ -1,7 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import { User } from '../types/user';
+
+// Lazy load the dropdown content
+const UserDropdownContent = lazy(() => import('./UserDropdownContent'));
 
 interface UserDropdownProps {
   users: User[];
@@ -11,16 +14,6 @@ interface UserDropdownProps {
 export default function UserDropdown({ users, onUserSelect }: UserDropdownProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-
-  const filteredUsers = users.filter(user => 
-    user.name.first.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const handleUserSelect = (user: User) => {
-    onUserSelect(user);
-    setSearchTerm('');
-    setIsOpen(false);
-  };
 
   return (
     <div className="relative w-full max-w-md mx-auto">
@@ -39,23 +32,17 @@ export default function UserDropdown({ users, onUserSelect }: UserDropdownProps)
       />
       
       {isOpen && searchTerm && (
-        <ul className="absolute z-10 w-full max-h-60 overflow-y-auto 
-                       bg-container-bg rounded-md shadow-lg mt-1">
-          {filteredUsers.length > 0 ? (
-            filteredUsers.map((user, index) => (
-              <li 
-                key={index}
-                onClick={() => handleUserSelect(user)}
-                className="p-3 hover:bg-highlight/30 cursor-pointer 
-                           border-b last:border-b-0 border-primary-text/10"
-              >
-                {user.name.first} {user.name.last}
-              </li>
-            ))
-          ) : (
-            <li className="p-3 text-primary-text/70">No users found</li>
-          )}
-        </ul>
+        <Suspense fallback={<div>Loading...</div>}>
+          <UserDropdownContent 
+            users={users}
+            searchTerm={searchTerm}
+            onUserSelect={(user) => {
+              onUserSelect(user);
+              setSearchTerm('');
+              setIsOpen(false);
+            }}
+          />
+        </Suspense>
       )}
     </div>
   );
