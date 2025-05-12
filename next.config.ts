@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+        pathname: '/api/portraits/**', // Optional: specify a path pattern
+      },
+      // Add more hostnames as needed
+    ],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
