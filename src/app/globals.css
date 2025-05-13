@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply bg-blue-800 text-gray-800;
+    @apply bg-[#ebf2fa] text-[#a5be00];
   }
 }
 
@@ -12,27 +12,105 @@
   }
 
   .input-field {
-    @apply w-full p-3 rounded-lg bg-white border border-slate-200 
-           text-slate-700 placeholder-slate-400
-           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+    @apply w-full p-3 rounded-lg bg-[#ebf2fa] border border-[#ebf2fa] 
+           text-[#05668d] placeholder-[#427aa1]/60
+           focus:outline-none focus:ring-2 focus:ring-[#05668d] focus:border-transparent
            shadow-sm transition-all duration-200;
   }
 
   .dropdown-container {
-    @apply absolute w-full mt-1 bg-white rounded-lg shadow-lg 
-           border border-slate-200 max-h-96 overflow-y-auto;
+    @apply absolute w-full mt-1 bg-[#ebf2fa] rounded-lg shadow-lg 
+           border border-[#427aa1]/20 max-h-96 overflow-y-auto;
   }
 
   .dropdown-item {
-    @apply p-3 hover:bg-slate-50 cursor-pointer transition-colors duration-150
-           border-b border-slate-100 last:border-b-0;
+    @apply p-3 hover:bg-[#427aa1]/10 cursor-pointer transition-colors duration-150
+           border-b border-[#05668d]/10 last:border-b-0;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md p-6 border border-slate-200;
+    @apply bg-[#ebf2fa] rounded-lg shadow-md p-6 border border-[#427aa1]/20;
+  }
+
+  /* Additional utility classes for your color palette */
+  .bg-primary {
+    @apply bg-[#05668d];
+  }
+
+  .bg-secondary {
+    @apply bg-[#427aa1];
+  }
+
+  .bg-accent {
+    @apply bg-[#a5be00];
+  }
+
+  .bg-tertiary {
+    @apply bg-[#679436];
+  }
+
+  .bg-light {
+    @apply bg-[#ebf2fa];
+  }
+
+  .text-primary {
+    @apply text-[#05668d];
+  }
+
+  .text-secondary {
+    @apply text-[#427aa1];
+  }
+
+  .text-accent {
+    @apply text-[#a5be00];
+  }
+
+  .text-tertiary {
+    @apply text-[#679436];
+  }
+
+  .border-primary {
+    @apply border-[#05668d];
+  }
+
+  .btn {
+    @apply bg-[#427aa1] text-[#ebf2fa] px-4 py-2 rounded-lg 
+           hover:bg-[#05668d] transition-colors duration-200
+           focus:ring-2 focus:ring-[#05668d]/50 focus:outline-none;
+  }
+
+  .btn-accent {
+    @apply bg-[#a5be00] text-[#ebf2fa] px-4 py-2 rounded-lg 
+           hover:bg-[#679436] transition-colors duration-200
+           focus:ring-2 focus:ring-[#a5be00]/50 focus:outline-none;
   }
 }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ebf2fa;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .user-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .user-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(5, 102, 141, 0.15);
+    }
+    
+    .profile-img {
+      transition: transform 0.5s ease;
+    }
+    
+    .user-card:hover .profile-img {
+      transform: scale(1.05);
+    }
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 0.5rem;

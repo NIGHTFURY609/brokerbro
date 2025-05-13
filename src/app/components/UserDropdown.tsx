@@ -16,8 +16,9 @@ export default function UserDropdown({ users, onUserSelect }: UserDropdownProps)
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative w-full max-w-md mx-auto">
+    <div className="relative w-full max-w-md mx-auto ">
       <input 
+      id="searchInput"
         type="text" 
         placeholder="Search users by first name..."
         value={searchTerm}
@@ -26,12 +27,11 @@ export default function UserDropdown({ users, onUserSelect }: UserDropdownProps)
           setIsOpen(true);
         }}
         onFocus={() => setIsOpen(true)}
-        className="input-field"
-      />
+        className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow bg-white placeholder-gray-500 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
       
       {isOpen && searchTerm && (
         <Suspense fallback={
-          <div className="dropdown-container p-4 text-slate-500">
+          <div className="absolute mt-2 w-full z-50 bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200 max-h-96 overflow-y-auto">
             Loading...
           </div>
         }>

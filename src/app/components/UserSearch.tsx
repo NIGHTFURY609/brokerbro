@@ -17,14 +17,18 @@ export default function UserSearch({ initialUsers }: UserSearchProps) {
   };
 
   return (
-    <div className="space-y-6">
-      <UserDropdown 
-        users={initialUsers} 
-        onUserSelect={handleUserSelect} 
-      />
-      
+    <div className="relative flex flex-col items-center px-4 py-8 space-y-6 max-w-4xl mx-auto">
+      {/* Search Dropdown */}
+      <div className="w-full">
+        <UserDropdown 
+          users={initialUsers} 
+          onUserSelect={handleUserSelect} 
+        />
+      </div>
+
+      {/* Selected User Display */}
       {selectedUser && (
-        <div className="mt-6">
+        <div className="w-full">
           <UserCard user={selectedUser} />
         </div>
       )}
