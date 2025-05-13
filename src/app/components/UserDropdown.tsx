@@ -26,13 +26,15 @@ export default function UserDropdown({ users, onUserSelect }: UserDropdownProps)
           setIsOpen(true);
         }}
         onFocus={() => setIsOpen(true)}
-        className="w-full p-3 rounded-md bg-input-bg text-primary-text 
-                   placeholder-primary-text/70 focus:outline-none 
-                   focus:ring-2 focus:ring-highlight"
+        className="input-field"
       />
       
       {isOpen && searchTerm && (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={
+          <div className="dropdown-container p-4 text-slate-500">
+            Loading...
+          </div>
+        }>
           <UserDropdownContent 
             users={users}
             searchTerm={searchTerm}
