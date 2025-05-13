@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: 'Random User Directory',
@@ -26,6 +27,7 @@ export default function RootLayout({
 
           {/* Page Content */}
           {children}
+          <SpeedInsights />
         </div>
 
         {/* Footer */}

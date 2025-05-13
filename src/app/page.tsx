@@ -5,6 +5,7 @@ import { fetchUsers } from './lib/api';
 import UserSearch from './components/UserSearch';
 import UserSearchSkeleton from './components/UserSearchSkeleton';
 
+
 export default async function Home() {
   const users = await fetchUsers(100);
 
