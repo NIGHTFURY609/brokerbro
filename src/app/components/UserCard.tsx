@@ -12,8 +12,8 @@ export default function UserCard({ user }: UserCardProps) {
         <Image
           src={user.picture.large}
           alt={`${user.name.first} ${user.name.last}`}
-          width={150}
-          height={150}
+          width={128}
+          height={128}
           className="rounded-full object-cover"
         />
 
