@@ -15,6 +15,7 @@ export default function UserCard({ user }: UserCardProps) {
         height={200} 
         className="rounded-full border-4 border-highlight"
       />
+      
       <div className="text-center">
         <h2 className="text-2xl font-bold text-primary-text">
           {user.name.title} {user.name.first} {user.name.last}
