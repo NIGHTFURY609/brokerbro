@@ -1,3 +1,37 @@
+# 📇 Random User Directory
+
+A professional, fast, and elegant **Next.js 13+ App Router** app that fetches and displays random user profiles. This project uses **Tailwind CSS** for styling and **Server-Side Rendering (SSR)** for blazing-fast load times.
+
+## 🚀 Features
+
+- 🔍 **Searchable Dropdown** – Filter users by **first name** using an input with live search and dropdown results.
+- 🧑‍💼 **User Profile Viewer** – Click on a user to view full profile details including photo, email, gender, and location.
+- ⚡️ **Server-Side Data Fetching** – Users are fetched at build time using SSR for fast initial page load.
+- 🎨 **Clean UI** – Professionally styled using Tailwind CSS and a modern color palette.
+- 📱 **Responsive** – Fully responsive design, optimized for mobile and desktop.
+
+---
+
+## 🧑‍💻 Tech Stack
+
+- **Framework:** [Next.js 13+](https://nextjs.org/docs) with the **App Router**
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **API:** [Random User API](https://randomuser.me/)
+- **Rendering:** Server-side rendering (`async` `page.tsx`)
+
+---
+🔧 Development Notes
+All data is fetched using SSR inside page.tsx via fetchUsers().
+
+Dropdown is lazily rendered using React.lazy for performance.
+
+User filtering is done client-side in UserDropdownContent.tsx.
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 ##### Installation  
 ```bash
